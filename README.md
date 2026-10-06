@@ -97,6 +97,31 @@ Or via the flake's overlay:
 inputs.json2json.url = "github:71g3pf4c3/json2json";
 ```
 
+On NixOS:
+
+```nix
+{
+  inputs.json2json.url = "github:71g3pf4c3/json2json";
+
+  # in your NixOS host:
+  imports = [ inputs.json2json.nixosModules.default ];
+  programs.json2json.enable = true;
+}
+```
+
+With home-manager:
+
+```nix
+{
+  imports = [ inputs.json2json.homeManagerModules.default ];
+  programs.json2json.enable = true;
+}
+```
+
+The module exposes two options: `enable` (off by default) and `package`
+(defaults to the flake's build for your system, so no overlay is required —
+override it if you want a pinned or patched build).
+
 ### Cargo
 
 ```console
