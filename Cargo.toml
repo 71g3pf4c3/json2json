@@ -1,0 +1,13 @@
+[package]
+name = "json2json"
+version = "0.1.0"
+edition = "2021"
+description = "Lossless JSON to JSON transformer"
+license = "GPL-3.0-or-later"
+
+[dependencies]
+
+[profile.release]
+lto = true
+codegen-units = 1
+strip = true
